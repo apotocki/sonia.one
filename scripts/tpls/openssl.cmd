@@ -25,6 +25,7 @@ cd ..
 echo building openssl-%OPENSSL_VER% ...
 call "%MSVS_BUILD%\vcvars64.bat"
 cd openssl-%OPENSSL_VER%
+
 perl Configure --prefix="%TPLS_HOME%\openssl" --openssldir="%TPLS_HOME%/openssl/ssl" VC-WIN64A || goto :error
 nmake || goto :error
 rem nmake test || goto :error
@@ -34,6 +35,7 @@ if exist %TPLS_HOME%\openssl (
 rm -rf %TPLS_HOME%\openssl
 )
 
+:install
 nmake install || goto :error
 goto :end
 

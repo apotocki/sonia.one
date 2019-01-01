@@ -9,6 +9,8 @@ REM ############## SETUP END
 
 set TPLS_HOME=%CD%\tpls 
 
+set PATH=%PATH%;%CD%\scripts\tpls\workaround
+
 IF NOT EXIST build (
 mkdir build
 )
