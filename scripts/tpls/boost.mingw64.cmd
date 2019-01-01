@@ -10,7 +10,7 @@ REM ############## SETUP END
 
 set BOOST_NAME=boost_%BOOST_VER:.=_%
 
-set PATH=%PATH%;%MSYS_HOME%\usr\bin;%MSYS_HOME%\mingw64\bin
+set PATH=%PATH%;%MSYS_HOME%\usr\bin;%MSYS_HOME%\mingw64\bin;%TPLS_HOME%\icu.mingw64\lib
 set LIBRARY_PATH=%MSYS_HOME%\mingw64\bin
 
 IF NOT EXIST %BOOST_NAME%.tar.bz2 (
@@ -49,7 +49,7 @@ rem https://sourceforge.net/p/mingw-w64/bugs/527/
 sed 's/$#define BOOST_NO_CXX11_THREAD_LOCAL/\/\/ #define BOOST_NO_CXX11_THREAD_LOCAL/' boost/config/compiler/gcc.hpp > boost/config/compiler/gcc.hpp.fixed
 move /Y boost\config\compiler\gcc.hpp.fixed boost\config\compiler\gcc.hpp
 
-bjam.exe -j8 -sICU_PATH="%TPLS_HOME%\icu.mingw64" -sICU_LINK="-LIBPATH:%TPLS_HOME%\icu.mingw64\lib -licuuc -licuin -licudt" toolset=gcc release link=shared runtime-link=shared address-model=64 architecture=x86 define=BOOST_SPIRIT_THREADSAFE define=BOOST_USE_WINDOWS_H define=_WIN32_WINNT=0x0601 define=WINVER=0x0601 --with-date_time --with-thread --with-chrono --with-program_options --with-regex --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-fiber
+bjam.exe -j8 -sICU_PATH="%TPLS_HOME%\icu.mingw64" -sICU_LINK="-L%TPLS_HOME%\icu.mingw64\lib -licuuc.dll -licuin.dll -licudt.dll" toolset=gcc release link=shared runtime-link=shared address-model=64 architecture=x86 define=BOOST_SPIRIT_THREADSAFE define=BOOST_USE_WINDOWS_H define=_WIN32_WINNT=0x0601 define=WINVER=0x0601 --with-date_time --with-thread --with-chrono --with-program_options --with-regex --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-fiber
 
 goto :end
 echo installing boost...
