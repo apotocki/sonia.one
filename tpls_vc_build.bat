@@ -16,6 +16,7 @@ mkdir build
 )
 cd build
 
+call ..\scripts\tpls\openssl.cmd %TPLS_HOME%
 call ..\scripts\tpls\icu.cmd %TPLS_HOME%
 call ..\scripts\tpls\icu.mingw64.cmd %TPLS_HOME%
 call ..\scripts\tpls\boost.cmd %TPLS_HOME%
@@ -27,6 +28,5 @@ call ..\scripts\tpls\lexertl.cmd %TPLS_HOME%
 call ..\scripts\tpls\libpng.cmd %TPLS_HOME%
 call ..\scripts\tpls\pixman.cmd %TPLS_HOME%
 call ..\scripts\tpls\cairo.cmd %TPLS_HOME%
-call ..\scripts\tpls\openssl.cmd %TPLS_HOME%
 
 cd ..
