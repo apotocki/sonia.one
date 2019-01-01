@@ -46,12 +46,10 @@ rem BROKEN thread_local support (works for mingw64!)
 rem https://github.com/boostorg/config/commit/fe5e07b521e49f6cca712c801e025fed13c23979
 rem https://sourceforge.net/p/mingw-w64/bugs/527/
 
-rem bjam.exe -j8 -sICU_PATH="%TPLS_HOME%\icu.mingw" -sICU_LINK="-LIBPATH:%TPLS_HOME%\icu.mingw\lib -licuuc -licuin -licudt" toolset=gcc release link=shared runtime-link=shared address-model=64 architecture=x86 define=BOOST_SPIRIT_THREADSAFE define=BOOST_USE_WINDOWS_H define=_WIN32_WINNT=0x0601 define=WINVER=0x0601 --with-date_time --with-thread --with-chrono --with-program_options --with-regex --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-fiber
-
 sed 's/$#define BOOST_NO_CXX11_THREAD_LOCAL/\/\/ #define BOOST_NO_CXX11_THREAD_LOCAL/' boost/config/compiler/gcc.hpp > boost/config/compiler/gcc.hpp.fixed
 move /Y boost\config\compiler\gcc.hpp.fixed boost\config\compiler\gcc.hpp
 
-bjam.exe -j8 -sICU_PATH="%TPLS_HOME%\icu.mingw" -sICU_LINK="-LIBPATH:%TPLS_HOME%\icu.mingw\lib -licuuc -licuin -licudt" toolset=gcc release link=shared runtime-link=shared address-model=64 architecture=x86 define=BOOST_SPIRIT_THREADSAFE define=BOOST_USE_WINDOWS_H define=_WIN32_WINNT=0x0601 define=WINVER=0x0601 --with-fiber
+bjam.exe -j8 -sICU_PATH="%TPLS_HOME%\icu.mingw64" -sICU_LINK="-LIBPATH:%TPLS_HOME%\icu.mingw\lib -licuuc -licuin -licudt" toolset=gcc release link=shared runtime-link=shared address-model=64 architecture=x86 define=BOOST_SPIRIT_THREADSAFE define=BOOST_USE_WINDOWS_H define=_WIN32_WINNT=0x0601 define=WINVER=0x0601 --with-date_time --with-thread --with-chrono --with-program_options --with-regex --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-fiber
 
 goto :end
 echo installing boost...

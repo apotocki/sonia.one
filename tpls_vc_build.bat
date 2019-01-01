@@ -1,5 +1,5 @@
 @echo off
-
+setlocal
 REM ############## SETUP
 rem install msys2; pacman -Syu; pacman -S git unzip nasm mingw-w64-x86_64-perl mingw-w64-x86_64-cmake mingw-w64-x86_64-make mingw-w64-x86_64-gcc zlib-devel mingw-w64-x86_64-icu openssl-devel
 rem expected system variables:
@@ -30,3 +30,4 @@ call ..\scripts\tpls\pixman.cmd %TPLS_HOME%
 call ..\scripts\tpls\cairo.cmd %TPLS_HOME%
 
 cd ..
+endlocal
