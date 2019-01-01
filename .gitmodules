@@ -1,0 +1,3 @@
+[submodule "bundles/sonia-prime"]
+	path = bundles/sonia-prime
+	url = https://github.com/apotocki/sonia-prime

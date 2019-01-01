@@ -1,0 +1,38 @@
+# this one is important
+SET (BUILD_MINGW False)
+SET (BUILD_CLANG True)
+SET(CMAKE_SYSTEM_NAME Windows)
+
+SET (CMAKE_C_COMPILER             clang)
+SET (CMAKE_CXX_COMPILER           clang++)
+	
+#if (DEFINED ENV{WIN_CLANG_HOME})
+#	SET (CMAKE_C_COMPILER             "$ENV{WIN_CLANG_HOME}/bin/clang.exe")
+#	SET (CMAKE_CXX_COMPILER           "$ENV{WIN_CLANG_HOME}/bin/clang++.exe")
+#	SET (CMAKE_AR      			      "$ENV{WIN_CLANG_HOME}/bin/llvm-ar.exe")
+#   SET (CMAKE_LINKER  				  "$ENV{WIN_CLANG_HOME}/bin/llvm-ld.exe")
+#    SET (CMAKE_NM      			      "$ENV{WIN_CLANG_HOME}/bin/llvm-nm.exe")
+#    SET (CMAKE_OBJDUMP 				  "$ENV{WIN_CLANG_HOME}/bin/llvm-objdump.exe")
+#    SET (CMAKE_RANLIB  				  "$ENV{WIN_CLANG_HOME}/bin/llvm-ranlib.exe")
+#elseif (DEFINED ENV{CLANG_HOME})
+#	SET (CMAKE_C_COMPILER             "$ENV{CLANG_HOME}/bin/clang")
+#	SET (CMAKE_CXX_COMPILER           "$ENV{CLANG_HOME}/bin/clang++")
+#	SET (CMAKE_AR      			      "$ENV{CLANG_HOME}/bin/llvm-ar")
+#    SET (CMAKE_LINKER  				  "$ENV{CLANG_HOME}/bin/llvm-ld")
+#    SET (CMAKE_NM      			      "$ENV{CLANG_HOME}/bin/llvm-nm")
+#    SET (CMAKE_OBJDUMP 				  "$ENV{CLANG_HOME}/bin/llvm-objdump")
+#    SET (CMAKE_RANLIB  				  "$ENV{CLANG_HOME}/bin/llvm-ranlib")
+#endif ()
+
+SET (CMAKE_C_FLAGS_INIT                "-Wall -std=c99")
+SET (CMAKE_C_FLAGS_DEBUG_INIT          "-g")
+SET (CMAKE_C_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
+SET (CMAKE_C_FLAGS_RELEASE_INIT        "-O4 -DNDEBUG")
+SET (CMAKE_C_FLAGS_RELWITHDEBINFO_INIT "-O2 -g")
+
+SET (CMAKE_CXX_FLAGS_INIT                "-Wall")
+SET (CMAKE_CXX_FLAGS_DEBUG_INIT          "-g")
+SET (CMAKE_CXX_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
+SET (CMAKE_CXX_FLAGS_RELEASE_INIT        "-O4 -DNDEBUG")
+SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO_INIT "-O2 -g")
+

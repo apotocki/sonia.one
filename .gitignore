@@ -1,0 +1,11 @@
+/projects/vs/Debug
+/projects/vs/test/.vs
+/projects/vs/test/Debug
+/projects/vs/test/x64
+/projects/vs/test/*.user
+/projects/vs/x64
+/projects/vs/.vs
+/projects/vs/angel/*.user
+/projects/vs/angel/x64
+/build
+/tpls

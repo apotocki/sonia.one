@@ -1,0 +1,13 @@
+# this one is important
+set (BUILD_MINGW False)
+
+if (DEFINED ENV{GCC_PREFIX})
+    SET(CMAKE_C_COMPILER $ENV{GCC_PREFIX}/gcc-$ENV{GCC_VERSION}/bin/gcc)
+    SET(CMAKE_CXX_COMPILER $ENV{GCC_PREFIX}/gcc-$ENV{GCC_VERSION}/bin/g++)
+    SET(ENV{LD_LIBRARY_PATH} "$ENV{GCC_PREFIX}/gcc-$ENV{GCC_VERSION}/lib64:$ENV{LD_LIBRARY_PATH}")
+    include_directories($ENV{GCC_PREFIX}/gcc-$ENV{GCC_VERSION}/include/c++/$ENV{GCC_VERSION})
+else()
+    SET(CMAKE_C_COMPILER gcc)
+    SET(CMAKE_CXX_COMPILER g++)
+endif()
+
