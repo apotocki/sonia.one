@@ -1,0 +1,2 @@
+FROM ubuntu-dev:latest
+ENTRYPOINT service ssh start && bash

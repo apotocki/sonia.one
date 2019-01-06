@@ -26,7 +26,7 @@ add_executable(${BUNDLE_NAME} ${BUNDLE_SOURCES})
 
 sonia_link_library(${BUNDLE_NAME} sonia-prime-lib)
 sonia_link_library(${BUNDLE_NAME} sonia-prime)
-sonia_link_library(${BUNDLE_NAME} sonia-net)
+#sonia_link_library(${BUNDLE_NAME} sonia-net)
 
 #if (BUILD_MINGW)
 

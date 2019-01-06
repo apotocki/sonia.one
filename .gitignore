@@ -10,3 +10,11 @@
 /build
 /tpls
 /my_tpls_vc_build.bat
+/scripts/mingw/build
+/build_config.hpp
+/scripts/docker-build-image/*.bz2
+/scripts/docker/build
+/workdirs/tests/.*
+/workdirs/tests/logs
+/workdirs/tests/*_test
+
