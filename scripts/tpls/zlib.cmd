@@ -28,8 +28,10 @@ cd zlib-%ZLIB_VER%
 rem patching makefile
 sed -i s/-base:0x5A4C0000// win32\Makefile.msc
 sed -i s/-coff// win32\Makefile.msc
+
 nmake -f win32/Makefile.msc clean
-nmake -f win32/Makefile.msc AS=ml64 LOC="-DASMV -DASMINF -I." OBJA="inffasx64.obj gvmat64.obj inffas8664.obj" zlib.lib zlib1.dll zdll.lib test
+nmake -f win32/Makefile.msc AS=ml64 zlib.lib zlib1.dll zdll.lib test
+rem LOC="-DASMV -DASMINF -I." OBJA="inffasx64.obj gvmat64.obj inffas8664.obj" 
 
 echo installing zlib-%ZLIB_VER% ...
 if exist %TPLS_HOME%\zlib (
@@ -42,13 +44,14 @@ mkdir %TPLS_HOME%\zlib\bin
 mkdir %TPLS_HOME%\zlib\lib
 cp ./{zlib.h,zconf.h} %TPLS_HOME%\zlib\include\
 cp ./{zlib1.dll,zlib1.pdb} %TPLS_HOME%\zlib\bin\
-cp ./{zlib.lib,zdll.lib,zdll.exp} %TPLS_HOME%\zlib\lib\
+cp ./{zlib.lib,zdll.lib,zdll.exp,zlib.pdb} %TPLS_HOME%\zlib\lib\
 
 echo building debug version
 nmake -f win32/Makefile.msc clean
 
 sed s/-MD/-MDd/ win32\Makefile.msc > win32\MakefileD.msc
-nmake -f win32/MakefileD.msc AS=ml64 STATICLIB="zlibd.lib" SHAREDLIB="zlib1d.dll" IMPLIB="zdlld.lib" LOC="-DASMV -DASMINF -I." OBJA="inffasx64.obj gvmat64.obj inffas8664.obj" zlibd.lib zlib1d.dll zdlld.lib test
+nmake -f win32/MakefileD.msc AS=ml64 STATICLIB="zlibd.lib" SHAREDLIB="zlib1d.dll" IMPLIB="zdlld.lib" zlibd.lib zlib1d.dll zdlld.lib test
+rem LOC="-DASMV -DASMINF -I." OBJA="inffasx64.obj gvmat64.obj inffas8664.obj" 
 cp ./{zlib1d.dll,zlib1d.pdb} %TPLS_HOME%\zlib\bin\
 cp ./{zlibd.lib,zdlld.lib,zdlld.exp} %TPLS_HOME%\zlib\lib\
 
