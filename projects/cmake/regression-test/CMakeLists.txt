@@ -8,6 +8,7 @@ set (BUNDLE_NAME regression-test)
 set (BUNDLE_SOURCES
 	${BUNDLES}/sonia-prime/applied/tests_support.cpp
     ${BUNDLES}/sonia-prime/tests/cmp_test.cpp
+    ${BUNDLES}/sonia-prime/tests/marshaling_test.cpp
     ${BUNDLES}/sonia-prime/tests/file_persister_test.cpp
     ${BUNDLES}/sonia-prime/tests/json_parser_test.cpp
     ${BUNDLES}/sonia-prime/tests/iterators_test.cpp
@@ -17,6 +18,7 @@ set (BUNDLE_SOURCES
     ${BUNDLES}/sonia-prime/tests/prime_test.cpp
     ${BUNDLES}/sonia-prime/tests/tls_crash_test.cpp
     ${BUNDLES}/sonia-prime/tests/server_test.cpp
+    
     #${BUNDLES}/sonia-net/tests/cmd_transceiver_test.cpp
 )
 
