@@ -13,15 +13,18 @@
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\file_persister_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\socket_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\tls_crash_test.cpp" />
-    <ClCompile Include="..\..\..\bundles\sonia-net\tests\transceiver_test.cpp">
-      <Filter>net</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\signal_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\io_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\bit_coder_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\cmp_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\tar_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\marshaling_test.cpp" />
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\transceiver_test.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\net_service_test.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="net">

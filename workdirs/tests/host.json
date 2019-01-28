@@ -14,8 +14,8 @@
                 fibers: 300
             }
         },
-        "aio.serv": {
-            factory: "aio-factory",
+        "io.serv": {
+            factory: "io-factory",
             layer: 16,
             parameters: {
                 threads: 8
@@ -25,7 +25,7 @@
             factory: "net-factory",
             layer: 16,
             parameters: {
-                acceptor-factory: 'aio.serv',
+                acceptor-factory: 'io.serv',
                 listeners: [
                     {
                         connector: 'cmd.serv',
@@ -42,15 +42,20 @@
             layer: 0,
             parameters: { name: "scheduler" }
         },
-        aio-factory: {
+        io-factory: {
             factory: "prime",
             layer: 0,
-            parameters: { name: "aio" }
+            parameters: { name: "io" }
+        },
+        net-factory: {
+            factory: "prime",
+            layer: 0,
+            parameters: { name: "net" }
         }
     },
     bundles: {
-        "prime": {lib: "sonia-prime"},
-        "net": {lib: "sonia-net"}
+        "prime": {lib: "sonia-prime"}
+        //"net": {lib: "sonia-net"}
     }
 }
 /*
