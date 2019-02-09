@@ -10,7 +10,8 @@ set (BUNDLE_SOURCES
     #${BUNDLES}/sonia-prime/tests/signal_test.cpp
     #${BUNDLES}/sonia-prime/tests/aio_test.cpp
     #${BUNDLES}/sonia-net/tests/transceiver_test.cpp
-    ${BUNDLES}/sonia-prime/tests/test.cpp
+    ${BUNDLES}/sonia-prime/tests/net_service_test.cpp
+    #${BUNDLES}/sonia-prime/tests/test.cpp
 )
 
 add_executable(${BUNDLE_NAME} ${BUNDLE_SOURCES})
@@ -19,7 +20,7 @@ add_executable(${BUNDLE_NAME} ${BUNDLE_SOURCES})
 
 sonia_link_library(${BUNDLE_NAME} sonia-prime-lib)
 sonia_link_library(${BUNDLE_NAME} sonia-prime)
-sonia_link_library(${BUNDLE_NAME} sonia-net)
+#sonia_link_library(${BUNDLE_NAME} sonia-net)
 
 #if (BUILD_MINGW)
 
@@ -29,5 +30,6 @@ sonia_link_library(${BUNDLE_NAME} sonia-net)
 #    target_link_libraries(${MODULE_NAME} ${BOOST_LOCALE} ${OPENSSL})
 #endif()
 
-target_link_libraries(${BUNDLE_NAME} ${PLATFORM_LIBS} ${BOOST_SYSTEM} ${BOOST_CHRONO} ${BOOST_SERIALIZATION} ${BOOST_TEST_LIB} ${BOOST_PROGRAM_OPTIONS} ${BOOST_FILESYSTEM})
+target_link_libraries(${BUNDLE_NAME} ${PLATFORM_LIBS} ${BOOST_SYSTEM} ${BOOST_CHRONO} ${BOOST_SERIALIZATION} ${BOOST_TEST_LIB} ${BOOST_PROGRAM_OPTIONS} ${BOOST_FILESYSTEM} ${ZLIB} ${BZLIB})
+
 #target_link_libraries(${BUNDLE_NAME} ${BOOST_CHRONO} ${BOOST_TEST_LIB} ${BOOST_PROGRAM_OPTIONS})
