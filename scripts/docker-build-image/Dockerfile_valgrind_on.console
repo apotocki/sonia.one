@@ -1,0 +1,2 @@
+FROM ubuntu-dev_valgrind_on:latest
+ENTRYPOINT service ssh start && bash

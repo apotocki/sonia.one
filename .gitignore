@@ -1,12 +1,9 @@
-/projects/vs/Debug
-/projects/vs/test/.vs
-/projects/vs/test/Debug
-/projects/vs/test/x64
-/projects/vs/test/*.user
-/projects/vs/x64
-/projects/vs/.vs
-/projects/vs/angel/*.user
-/projects/vs/angel/x64
+/projects/vs/**/Debug
+/projects/vs/**/.vs
+/projects/vs/**/x64
+/projects/vs/**/*.user
+/projects/vs/**/*.amplxeproj
+
 /build
 /tpls
 /my_tpls_vc_build.bat
@@ -14,7 +11,10 @@
 /build_config.hpp
 /scripts/docker-build-image/*.bz2
 /scripts/docker/build
-/workdirs/tests/.*
+/workdirs/**/.*
 /workdirs/tests/logs
 /workdirs/tests/*_test
+
+/workdirs/angel/logs
+
 

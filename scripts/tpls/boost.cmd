@@ -14,7 +14,7 @@ REM ############## SETUP
 rem set MSYS_HOME=
 rem set WIN_KIT_VERSION=10.0.17134.0
 set WIN_KIT_VERSION=10.0.17763.0
-set BOOST_VER=1.68.0
+set BOOST_VER=1.70.0
 REM ############## SETUP END
 
 set WIN_KIT_INCLUDE=%WIN_KIT_ROOT%Include\%WIN_KIT_VERSION%\ucrt

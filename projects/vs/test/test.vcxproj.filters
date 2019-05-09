@@ -7,7 +7,6 @@
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\serialization_stream_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\json_parser_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\test.cpp" />
-    <ClCompile Include="..\..\..\bundles\sonia-prime\applied\tests_support.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\optimized_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\number_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\file_persister_test.cpp" />
@@ -17,7 +16,6 @@
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\io_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\bit_coder_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\cmp_test.cpp" />
-    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\tar_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\marshaling_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\transceiver_test.cpp">
       <Filter>net</Filter>
@@ -25,10 +23,28 @@
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\net_service_test.cpp">
       <Filter>net</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\epoll_experiment.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\net\http_test.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\net\uri_test.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\applied\scoped_services.cpp">
+      <Filter>support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\applied\tests_support.cpp">
+      <Filter>support</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="net">
       <UniqueIdentifier>{b053190f-8f08-4783-ac80-0717ae154946}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="support">
+      <UniqueIdentifier>{6e240392-a652-40e6-a618-44a7796efcdb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

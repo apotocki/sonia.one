@@ -96,17 +96,9 @@ else()
     set(SONIA_C_AND_CXX_COMMON "${SONIA_C_AND_CXX_COMMON} -DNDEBUG")
 endif (DEFINED ENV{GCC_DEBUG_INFO})
 
-# boost
-if (DEFINED ENV{BOOST_LIB_SUFFIX})
-    set (BOOST_LIB_SUFFIX -$ENV{BOOST_LIB_SUFFIX})
-else ()
-    set (BOOST_LIB_SUFFIX)
-endif ()
-
-if (DEFINED ENV{BOOST_BUILD_INFIX})
-    set (BOOST_BUILD_INFIX $ENV{BOOST_BUILD_INFIX})
-else ()
-    set (BOOST_BUILD_INFIX)
+if (DEFINED USE_VALGRIND)
+    set(ignoreMe "${USE_VALGRIND}")
+    set (SONIA_C_AND_CXX_COMMON "${SONIA_C_AND_CXX_COMMON} -DBOOST_USE_VALGRIND")
 endif ()
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
@@ -120,6 +112,7 @@ endif ()
 #libraries
 set (ZLIB z)
 set (BZLIB bz2)
+set (OPENSSL ssl)
 set (BOOST_TEST_LIB boost_test_exec_monitor${BOOST_BUILD_INFIX}-mt${BOOST_LIB_SUFFIX} boost_unit_test_framework${BOOST_BUILD_INFIX}-mt${BOOST_LIB_SUFFIX})
 set (BOOST_LOG boost_log${BOOST_BUILD_INFIX}-mt${BOOST_LIB_SUFFIX})
 set (BOOST_LOG_SETUP boost_log_setup${BOOST_BUILD_INFIX}-mt${BOOST_LIB_SUFFIX})

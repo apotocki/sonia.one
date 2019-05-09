@@ -5,7 +5,7 @@ set TPLS_HOME=%1
 
 REM ############## SETUP
 rem set MSYS_HOME=
-set BOOST_VER=1.68.0
+set BOOST_VER=1.70.0
 REM ############## SETUP END
 
 set BOOST_NAME=boost_%BOOST_VER:.=_%

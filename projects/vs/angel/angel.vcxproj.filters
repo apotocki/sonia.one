@@ -12,6 +12,9 @@
     <ClCompile Include="..\..\..\bundles\sonia-prime\applied\linux_console.cpp">
       <Filter>applied</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\applied\scoped_services.cpp">
+      <Filter>applied</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\bundles\sonia-prime\applied\scoped_services.hpp">

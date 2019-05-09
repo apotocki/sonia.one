@@ -9,6 +9,7 @@ if [ ! -d build ]; then
 mkdir build
 fi
 cd build
-cmake /opt/src/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc7 -DBOOST_LIB_SUFFIX=-x64-1_70
+cmake /opt/src/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DCMAKE_TOOLCHAIN_FILE=/opt/src/projects/cmake/clang.toolchain.cmake -DBOOST_BUILD_INFIX=-clang7 -DBOOST_LIB_SUFFIX=-x64-1_69
 
 make -j4 dev-test
+
