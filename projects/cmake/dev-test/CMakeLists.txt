@@ -14,6 +14,7 @@ set (PROJECT_SOURCES
     #${BUNDLES}/sonia-prime/tests/net_service_test.cpp
     #${BUNDLES}/sonia-prime/tests/epoll_experiment.cpp
     #${BUNDLES}/sonia-prime/tests/test.cpp
+    ${BUNDLES}/sonia-prime/tests/timer_test.cpp
 )
 
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})

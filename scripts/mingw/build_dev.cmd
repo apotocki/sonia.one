@@ -26,7 +26,7 @@ cd build
 
 rem --graphviz=foo
 rem https://dreampuf.github.io/GraphvizOnline/
-cmake -G "MinGW Makefiles" %PROJECT_HOME%\projects\cmake\ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-mgw82 -DBOOST_LIB_SUFFIX=-x64-1_69
+cmake -G "MinGW Makefiles" %PROJECT_HOME%\projects\cmake\ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-mgw91 -DBOOST_LIB_SUFFIX=-x64-1_70
 
 mingw32-make.exe -j8 dev-test
 rem regression-test angel
