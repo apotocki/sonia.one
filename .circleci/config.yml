@@ -7,11 +7,13 @@ jobs:
      environment:
         BOOST_INCLUDE: /usr/local/include/boost-1_70
         PROJECT_HOME: /root/project/build
-        
+        SONIA_PRIME_HOME: /root/project/bundles/sonia-prime
+        LD_LIBRARY_PATH: /usr/local/lib:$PROJECT_HOME/sonia-prime
      steps:
        - checkout
        - run: git submodule sync
        - run: git submodule update --init
        - run: mkdir $PROJECT_HOME
-       - run: cd $PROJECT_HOME && CC=gcc-9 CXX=g++-9 cmake $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc9 -DBOOST_LIB_SUFFIX=-x64-1_70
+       - run: cd $PROJECT_HOME && CC=gcc-9 CXX=g++-9 cmake /root/project/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc9 -DBOOST_LIB_SUFFIX=-x64-1_70
        - run: make -j2 regression-test
+       - run: cd /root/project/workdirs/testworkdir && $PROJECT_HOME/regression-test/regression-test --no_color_output --log_level=test_suite
