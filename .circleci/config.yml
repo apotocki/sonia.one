@@ -13,4 +13,5 @@ jobs:
        - run: git submodule sync
        - run: git submodule update --init
        - run: mkdir $PROJECT_HOME
-       - run: cd $PROJECT_HOME && CC=gcc-9 CXX=g++-9 cmake /opt/quad/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc9 -DBOOST_LIB_SUFFIX=-x64-1_70
+       - run: cd $PROJECT_HOME && CC=gcc-9 CXX=g++-9 cmake $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc9 -DBOOST_LIB_SUFFIX=-x64-1_70
+       - run: make -j2 regression-test
