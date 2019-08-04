@@ -39,6 +39,7 @@
       <Filter>support</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\timer_test.cpp" />
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\mpl_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="net">

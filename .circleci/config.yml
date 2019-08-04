@@ -7,9 +7,9 @@ jobs:
      environment:
         BOOST_INCLUDE: /usr/local/include/boost-1_70
         PROJECT_HOME: /root/project
-        PROJECT_BUILD_HOME: $PROJECT_HOME/build
-        SONIA_PRIME_HOME: $PROJECT_HOME/bundles/sonia-prime
-        LD_LIBRARY_PATH: /usr/local/lib:$PROJECT_BUILD_HOME/sonia-prime
+        PROJECT_BUILD_HOME: /root/project/build
+        SONIA_PRIME_HOME: /root/project/bundles/sonia-prime
+        LD_LIBRARY_PATH: /usr/local/lib:/root/project/build/sonia-prime
      steps:
        - checkout
        - run: git submodule update --init
