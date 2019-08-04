@@ -4,6 +4,12 @@ jobs:
    build:
      docker:
        - image: sane22222/u18.04g9.1b1.70:latest
+     environment:
+        BOOST_INCLUDE: /usr/local/include/boost-1_70
+        PROJECT_HOME: ~/project/build
+        
      steps:
        - checkout
-       - run: echo "A first hello "
+       - run: git submodule sync
+       - run: git submodule update --init
+       - run: cd $PROJECT_HOME && CC=gcc-9 CXX=g++-9 cmake /opt/quad/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc9 -DBOOST_LIB_SUFFIX=-x64-1_70
