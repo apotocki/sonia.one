@@ -6,7 +6,7 @@ jobs:
        - image: sane22222/u18.04g9.1b1.70:latest
      environment:
         BOOST_INCLUDE: /usr/local/include/boost-1_70
-        PROJECT_HOME: ~/project/build
+        PROJECT_HOME: /root/project/build
         
      steps:
        - checkout
