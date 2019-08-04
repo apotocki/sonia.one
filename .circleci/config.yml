@@ -15,5 +15,5 @@ jobs:
        - run: git submodule update --init
        - run: mkdir $PROJECT_HOME
        - run: cd $PROJECT_HOME && CC=gcc-9 CXX=g++-9 cmake /root/project/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc9 -DBOOST_LIB_SUFFIX=-x64-1_70
-       - run: make -j2 regression-test
+       - run: cd $PROJECT_HOME && make -j2 regression-test
        - run: cd /root/project/workdirs/testworkdir && $PROJECT_HOME/regression-test/regression-test --no_color_output --log_level=test_suite
