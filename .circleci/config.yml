@@ -11,8 +11,7 @@ jobs:
         SONIA_PRIME_HOME: /root/project/bundles/sonia-prime
         LD_LIBRARY_PATH: /usr/local/lib:/root/project/build/sonia-prime
      steps:
-       - checkout
-       - run: git checkout dev
+       - run: git clone -b dev https://github.com/apotocki/sonia.one /root/project
        - run: git submodule update --init
        - run: git submodule foreach "git checkout dev"
        - run: mkdir -p $PROJECT_HOME/tpls/lexertl14 && cp -r /tmp/lexertl14/include $PROJECT_HOME/tpls/lexertl14/
