@@ -16,6 +16,6 @@ jobs:
        - run: git submodule foreach "git checkout master"
        - run: mkdir -p $PROJECT_HOME/tpls/lexertl14 && cp -r /tmp/lexertl14/include $PROJECT_HOME/tpls/lexertl14/
        - run: mkdir $PROJECT_BUILD_HOME
-       - run: cd $PROJECT_BUILD_HOME && CC=gcc-9 CXX=g++-9 cmake $$PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc9 -DBOOST_LIB_SUFFIX=-x64-1_70
+       - run: cd $PROJECT_BUILD_HOME && CC=gcc-9 CXX=g++-9 cmake $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc9 -DBOOST_LIB_SUFFIX=-x64-1_70
        - run: cd $PROJECT_BUILD_HOME && make -j2 regression-test
        - run: cd $$PROJECT_HOME/workdirs/testworkdir && $PROJECT_BUILD_HOME/regression-test/regression-test --no_color_output --log_level=test_suite
