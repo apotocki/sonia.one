@@ -23,6 +23,7 @@ set (PROJECT_SOURCES
     ${BUNDLES}/sonia-prime/tests/server_test.cpp
     ${BUNDLES}/sonia-prime/tests/transceiver_test.cpp
     ${BUNDLES}/sonia-prime/tests/timer_test.cpp
+    ${BUNDLES}/sonia-prime/tests/http_iterators_test.cpp
 )
 
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
