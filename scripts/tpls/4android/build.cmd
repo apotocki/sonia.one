@@ -1,7 +1,28 @@
-set BOOST_VER=1.70.0
-set ICU_VER=62.1
-set ANDROID_TARGET_PLATFORM=x86_64
-set ANDROID_VER=21
+@echo off
+SETLOCAL ENABLEEXTENSIONS
+
+REM ############## SETUP
+if NOT defined BOOST_VER (
+    echo BOOST_VER is no defined
+    set errorlevel=1
+    goto :error
+)
+if NOT defined ICU_VER (
+    echo ICU_VER is no defined
+    set errorlevel=1
+    goto :error
+)
+if NOT defined ANDROID_TARGET_PLATFORM (
+    echo ANDROID_TARGET_PLATFORM is no defined
+    set errorlevel=1
+    goto :error
+)
+if NOT defined ANDROID_VER (
+    echo ANDROID_VER is no defined
+    set errorlevel=1
+    goto :error
+)
+REM ############## SETUP END
 
 docker rm build4android
 docker run --name build4android ^
@@ -11,3 +32,11 @@ docker run --name build4android ^
   -e ANDROID_TARGET_PLATFORM ^
   -e ANDROID_VER ^
   -ti u18.04r20:latest /opt/sonia.one/scripts/tpls/4android/boost.sh
+
+goto :end
+
+:error
+echo Failed with error code #%errorlevel%.
+
+:end
+ENDLOCAL

@@ -19,7 +19,6 @@ if NOT defined BOOST_VER (
     set errorlevel=1
     goto :end
 )
-REM ############## SETUP END
 
 if "%ANDROID_TARGET_PLATFORM%" == "armv7a" (
     set ANDROID_BOOST_ABI=aapcs
@@ -34,6 +33,8 @@ if "%ANDROID_TARGET_PLATFORM%" == "armv7a" (
     set errorlevel=1
     goto :end
 )
+
+REM ############## SETUP END
 
 CALL %CD%\..\scripts\tpls\util\android.cmd
 

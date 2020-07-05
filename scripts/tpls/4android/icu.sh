@@ -8,7 +8,8 @@ BUILD_HOME=/opt/sonia.one/build
 cd /opt/sonia.one/build
 if [ ! -f icu4c-$ICU_VER-src.tgz ]; then
 echo downloading icu4c-$ICU_VER ...
-curl -L http://download.icu-project.org/files/icu4c/$ICU_VER/icu4c-${ICU_VER//\./_}-src.tgz -o icu4c-$ICU_VER-src.tgz
+curl https://github.com/unicode-org/icu/releases/download/release-%ICU_VER:.=-%/icu4c-%ICU_VER:.=_%-src.tgz -o icu4c-$ICU_VER-src.tgz
+#curl -L http://download.icu-project.org/files/icu4c/$ICU_VER/icu4c-${ICU_VER//\./_}-src.tgz -o icu4c-$ICU_VER-src.tgz
 fi
 
 if [ -d icu ]; then

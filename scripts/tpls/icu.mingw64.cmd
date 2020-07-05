@@ -4,15 +4,24 @@ SETLOCAL
 set TPLS_HOME=%1
 
 REM ############## SETUP
-set ICU_VER=62.1
-rem set MSYS_HOME=
+if NOT defined MSYS_HOME (
+    echo MSYS_HOME is no defined
+    set errorlevel=1
+    goto :error
+)
+if NOT defined ICU_VER (
+    echo ICU_VER is no defined
+    set errorlevel=1
+    goto :error
+)
 REM ############## SETUP END
 
-set PATH=%PATH%;%MSYS_HOME%\usr\bin;%MSYS_HOME%\mingw64\bin
+set PATH=%MSYS_HOME%\mingw64\bin;%MSYS_HOME%\usr\bin;%PATH%
 
 IF NOT EXIST icu4c-%ICU_VER%-src.tgz (
 echo downloading icu4c-%ICU_VER% ...
-curl -L http://download.icu-project.org/files/icu4c/%ICU_VER%/icu4c-%ICU_VER:.=_%-src.tgz -o icu4c-%ICU_VER%-src.tgz || goto :error
+curl -L https://github.com/unicode-org/icu/releases/download/release-%ICU_VER:.=-%/icu4c-%ICU_VER:.=_%-src.tgz -o icu4c-%ICU_VER%-src.tgz || goto :error
+rem curl -L http://download.icu-project.org/files/icu4c/%ICU_VER%/icu4c-%ICU_VER:.=_%-src.tgz -o icu4c-%ICU_VER%-src.tgz || goto :error
 )
 
 IF EXIST icu (
