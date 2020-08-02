@@ -57,7 +57,7 @@ rem https://sourceforge.net/p/mingw-w64/bugs/527/
 sed 's/$#define BOOST_NO_CXX11_THREAD_LOCAL/\/\/ #define BOOST_NO_CXX11_THREAD_LOCAL/' boost/config/compiler/gcc.hpp > boost/config/compiler/gcc.hpp.fixed
 move /Y boost\config\compiler\gcc.hpp.fixed boost\config\compiler\gcc.hpp
 
-b2.exe -j8 -sICU_PATH="%TPLS_HOME%\icu.mingw64" -sICU_LINK="-L%TPLS_HOME%\icu.mingw64\lib -licuuc.dll -licuin.dll -licudt.dll" toolset=gcc release link=shared runtime-link=shared address-model=64 architecture=x86 define=BOOST_SPIRIT_THREADSAFE define=BOOST_USE_WINDOWS_H define=_WIN32_WINNT=0x0601 define=WINVER=0x0601 --with-date_time --with-thread --with-program_options --with-regex --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-fiber --with-stacktrace
+b2.exe -j8 -sICU_PATH="%TPLS_HOME%\icu.mingw64" -sICU_LINK="-L%TPLS_HOME%\icu.mingw64\lib -licuuc.dll -licuin.dll -licudt.dll" toolset=gcc release link=shared runtime-link=shared address-model=64 architecture=x86 define=BOOST_SPIRIT_THREADSAFE define=BOOST_USE_WINDOWS_H define=_WIN32_WINNT=0x0601 define=WINVER=0x0601 --with-date_time --with-thread --with-program_options --with-regex --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-stacktrace
 
 rem goto :end
 echo installing boost...

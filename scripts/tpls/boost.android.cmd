@@ -110,7 +110,7 @@ echo ;
 rem #abi "aapcs" "eabi" "ms" "n32" "n64" "o32" "o64" "sysv" "x32"
 rem #architecture "x86" "ia64" "sparc" "power" "mips1" "mips2" "mips3" "mips4" "mips32" "mips32r2" "mips64" "parisc" "arm" "combined" "combined-x86-power"
 
-rem bjam.exe -j8 -sICU_PATH="%TPLS_HOME%\icu.android.%ANDROID_TARGET_PLATFORM%" target-os=android toolset=clang-8.0 address-model=%ANDROID_ADDRESS_MODEL% architecture=%ANDROID_ARCHITECTURE% binary-format=elf abi=%ANDROID_BOOST_ABI% release link=shared runtime-link=shared --layout=versioned define=BOOST_SPIRIT_THREADSAFE --with-date_time --with-thread --with-program_options --with-regex --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-fiber --with-stacktrace
+rem bjam.exe -j8 -sICU_PATH="%TPLS_HOME%\icu.android.%ANDROID_TARGET_PLATFORM%" target-os=android toolset=clang-8.0 address-model=%ANDROID_ADDRESS_MODEL% architecture=%ANDROID_ARCHITECTURE% binary-format=elf abi=%ANDROID_BOOST_ABI% release link=shared runtime-link=shared --layout=versioned define=BOOST_SPIRIT_THREADSAFE --with-date_time --with-thread --with-program_options --with-regex --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-stacktrace
 
 bjam.exe -j8 -d2 -sICU_PATH="%TPLS_HOME%\icu.android.%ANDROID_TARGET_PLATFORM%" target-os=android toolset=clang-8.0 address-model=%ANDROID_ADDRESS_MODEL% architecture=%ANDROID_ARCHITECTURE% binary-format=elf abi=%ANDROID_BOOST_ABI% release link=shared runtime-link=shared --layout=versioned define=BOOST_SPIRIT_THREADSAFE --with-context
 
