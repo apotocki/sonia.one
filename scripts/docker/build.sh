@@ -9,7 +9,6 @@ if [ ! -d build ]; then
 mkdir build
 fi
 cd build
-cmake /opt/src/projects/cmake/ -DBUILD_TYPE=DYNAMIC
+CC=gcc-10 CXX=g++-10 cmake /opt/src/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc10 -DBOOST_LIB_SUFFIX=-x64-1_73
 
 make -j4 regression-test
-
