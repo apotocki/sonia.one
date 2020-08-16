@@ -43,8 +43,8 @@ mkdir icu.mingw64.build
 
 cd icu.mingw64.build
 
-set CC=x86_64-w64-mingw32-gcc
-set CXX=x86_64-w64-mingw32-g++
+rem set CC=x86_64-w64-mingw32-gcc
+rem set CXX=x86_64-w64-mingw32-g++
 bash ../icu4c-%ICU_VER%-src/source/runConfigureICU MinGW prefix=%TPLS_HOME:\=/%/icu.mingw64 CXXFLAGS="--std=c++17"
 cp ../icu4c-%ICU_VER%-src/source/config/mh-mingw64 ../icu4c-%ICU_VER%-src/source/config/mh-unknown
 mingw32-make.exe -j4 || goto :error
