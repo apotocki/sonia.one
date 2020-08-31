@@ -1,8 +1,8 @@
-docker stop devrun
-docker rm devrun
-docker run --cap-add=SYS_PTRACE --name devrun ^
+docker rm rpidevrun
+docker run --name rpidevrun ^
   --mount type=bind,source="%CD%\..\..",target=/opt/src ^
   --mount type=bind,source="%CD%\..\..\workdirs\tests",target=/opt/workdir ^
   --mount type=bind,source="%CD%",target=/opt/build ^
-  -ti ubuntu-dev:latest /opt/build/run_dev-test.sh
+  -ti u18.04test:latest /bin/bash
+
 

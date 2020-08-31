@@ -39,7 +39,15 @@
       <Filter>support</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\timer_test.cpp" />
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\bookkeeper_test.cpp" />
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\mpl_test.cpp" />
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\xml_parser_test.cpp" />
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\agnostic\vector_test.cpp">
+      <Filter>agnostic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\agnostic\avl_test.cpp">
+      <Filter>agnostic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="net">
@@ -47,6 +55,9 @@
     </Filter>
     <Filter Include="support">
       <UniqueIdentifier>{6e240392-a652-40e6-a618-44a7796efcdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="agnostic">
+      <UniqueIdentifier>{752447cd-f8eb-48bd-8704-6b0bc8e579bd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ rem *********END SETUP***********
 
 set PROJECT_HOME=%CD%\..\..\
 set MINGW_HOME=%MSYS_HOME%\mingw64
-set PATH=%PATH%;%MINGW_HOME%\bin
+set PATH=%MINGW_HOME%\bin;%PATH%
 
 goto :build
 
@@ -26,7 +26,7 @@ cd build
 
 rem --graphviz=foo
 rem https://dreampuf.github.io/GraphvizOnline/
-cmake -G "MinGW Makefiles" %PROJECT_HOME%\projects\cmake\ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-mgw91 -DBOOST_LIB_SUFFIX=-x64-1_70
+cmake -G "MinGW Makefiles" %PROJECT_HOME%\projects\cmake\ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-mgw10 -DBOOST_LIB_SUFFIX=-x64-1_74
 
 mingw32-make.exe -j8 regression-test
 rem regression-test angel

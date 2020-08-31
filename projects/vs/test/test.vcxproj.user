@@ -18,7 +18,7 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LocalDebuggerWorkingDirectory>$(SolutionDir)..\..\workdirs\tests</LocalDebuggerWorkingDirectory>
-    <LocalDebuggerEnvironment>PATH=%PATH%;$(SolutionDir)..\..\tpls\boost\lib;$(SolutionDir)..\..\tpls\icu\bin;$(SolutionDir)..\..\tpls\openssl\bin
+    <LocalDebuggerEnvironment>PATH=%PATH%;$(SolutionDir)..\..\tpls\boost\lib;$(SolutionDir)..\..\tpls\icu\bin64;$(SolutionDir)..\..\tpls\openssl\bin
 SONIA_PRIME_HOME=$(SolutionDir)..\..\bundles\sonia-prime
 $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
@@ -26,7 +26,7 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LocalDebuggerWorkingDirectory>$(SolutionDir)..\..\workdirs\tests</LocalDebuggerWorkingDirectory>
-    <LocalDebuggerEnvironment>PATH=%PATH%;$(SolutionDir)..\..\tpls\boost\lib;$(SolutionDir)..\..\tpls\icu\bin;$(SolutionDir)..\..\tpls\openssl\bin
+    <LocalDebuggerEnvironment>PATH=%PATH%;$(SolutionDir)..\..\tpls\boost\lib;$(SolutionDir)..\..\tpls\icu\bin64;$(SolutionDir)..\..\tpls\openssl\bin
 SONIA_PRIME_HOME=$(SolutionDir)..\..\bundles\sonia-prime
 $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>

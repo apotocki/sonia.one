@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 include (${COMMON_INCLUDE})
 
 include_directories(${BUNDLES})
