@@ -10,7 +10,7 @@ set (PROJECT_SOURCES
     ${BUNDLES}/sonia-prime/applied/scoped_services.cpp
     #${BUNDLES}/sonia-prime/tests/signal_test.cpp
     #${BUNDLES}/sonia-prime/tests/aio_test.cpp
-    ${BUNDLES}/sonia-prime/tests/transceiver_test.cpp
+    #${BUNDLES}/sonia-prime/tests/transceiver_test.cpp
     #${BUNDLES}/sonia-prime/tests/net_service_test.cpp
     #${BUNDLES}/sonia-prime/tests/epoll_experiment.cpp
     #${BUNDLES}/sonia-prime/tests/test.cpp
