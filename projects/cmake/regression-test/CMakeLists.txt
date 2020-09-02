@@ -21,7 +21,7 @@ set (PROJECT_SOURCES
     ${BUNDLES}/sonia-prime/tests/prime_test.cpp
     ${BUNDLES}/sonia-prime/tests/tls_crash_test.cpp
     ${BUNDLES}/sonia-prime/tests/server_test.cpp
-    ${BUNDLES}/sonia-prime/tests/transceiver_test.cpp
+    #${BUNDLES}/sonia-prime/tests/transceiver_test.cpp
     ${BUNDLES}/sonia-prime/tests/timer_test.cpp
     ${BUNDLES}/sonia-prime/tests/http_iterators_test.cpp
 )
