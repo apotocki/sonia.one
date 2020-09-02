@@ -3,7 +3,7 @@ if (DEFINED ENV{UNIQUE_BUILDINFO})
 endif (DEFINED ENV{UNIQUE_BUILDINFO})
 
 if (DEFINED ENV{ICU_INCLUDE})
-	include_directories($ENV{BOOST_INCLUDE})
+	include_directories($ENV{ICU_INCLUDE})
 else (DEFINED ENV{ICU_INCLUDE})
 	if (DEFINED ENV{ICU_HOME})
 		include_directories($ENV{ICU_HOME}/include)

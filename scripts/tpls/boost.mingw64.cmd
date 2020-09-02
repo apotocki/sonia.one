@@ -69,10 +69,7 @@ sed 's/^^namespace boost/#include ^<boost\/serialization\/library_version_type.h
 
 echo building boost...
 
-rem !!! USING MSYS installed version of mingw
-rem !!! libs/locale/build/Jamfile.v2 needs fixing names for icudt, icuin and icuuc libraries
-rem -sICU_PATH="%TPLS_HOME%\icu.mingw64"  
-b2.exe -j8 cxxflags="-std=c++17" -sICU_ICUDT_NAME="icudt" -sICU_ICUIN_NAME="icuin" -sICU_ICUUC_NAME="icuuc" toolset=gcc release link=shared runtime-link=shared address-model=64 architecture=x86 define=BOOST_SPIRIT_THREADSAFE define=BOOST_USE_WINDOWS_H define=_WIN32_WINNT=0x0601 define=WINVER=0x0601 --with-date_time --with-thread --with-program_options --with-regex --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-stacktrace
+
 
 rem goto :end
 rem echo installing boost...
