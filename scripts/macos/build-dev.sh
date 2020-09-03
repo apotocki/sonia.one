@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 export PROJECT_HOME=$DIR/../..
 echo PROJECT_HOME = $PROJECT_HOME
@@ -15,7 +17,7 @@ fi
 cd $DIR/build
 cmake $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-clang-darwin110 -DBOOST_LIB_SUFFIX=-x64-1_74
 
-make -j1 dev-test
+make -j2 dev-test
 
 export DYLD_LIBRARY_PATH=$PROJECT_HOME/tpls/boost/lib:$DIR/build/sonia-prime
 echo $DYLD_LIBRARY_PATH
