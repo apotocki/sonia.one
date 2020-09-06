@@ -15,13 +15,14 @@ if [ ! -d $DIR/build ]; then
 fi
 
 cd $DIR/build
-cmake $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-clang-darwin110 -DBOOST_LIB_SUFFIX=-x64-1_74
+cmake $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=STATIC -DBOOST_BUILD_INFIX=-clang-darwin110 -DBOOST_LIB_SUFFIX=-x64-1_74
 
-make -j2 regression-test
+#VERBOSE=1
+make -j8 regression-test
 
 export SONIA_PRIME_HOME=$PROJECT_HOME/bundles/sonia-prime
-export DYLD_LIBRARY_PATH=$PROJECT_HOME/tpls/boost/lib:$DIR/build/sonia-prime
-echo $DYLD_LIBRARY_PATH
+#export DYLD_LIBRARY_PATH=$PROJECT_HOME/tpls/boost/lib:$DIR/build/sonia-prime
+#echo $DYLD_LIBRARY_PATH
 cd $PROJECT_HOME/workdirs/tests && $DIR/build/regression-test/regression-test --no_color_output --log_level=test_suite
 
 #        PROJECT_BUILD_HOME: /root/project/build
