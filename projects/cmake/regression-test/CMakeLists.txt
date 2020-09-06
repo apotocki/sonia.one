@@ -30,8 +30,8 @@ add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
 #add_definitions(${FACADE_DEFINITIONS})
 #set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER "test")
 
-sonia_link_library(${PROJECT_NAME} sonia-prime-lib)
 sonia_link_library(${PROJECT_NAME} sonia-prime)
+sonia_link_library(${PROJECT_NAME} sonia-prime-lib)
 
 #if (BUILD_MINGW)
 
@@ -41,5 +41,4 @@ sonia_link_library(${PROJECT_NAME} sonia-prime)
 #    target_link_libraries(${MODULE_NAME} ${BOOST_LOCALE} ${OPENSSL})
 #endif()
 
-target_link_libraries(${PROJECT_NAME} ${PLATFORM_LIBS} ${BOOST_CHRONO} ${BOOST_SERIALIZATION} ${BOOST_TEST_LIB} ${BOOST_PROGRAM_OPTIONS} ${BOOST_FILESYSTEM} ${ZLIB} ${BZLIB})
-#target_link_libraries(${PROJECT_NAME} ${BOOST_CHRONO} ${BOOST_TEST_LIB} ${BOOST_PROGRAM_OPTIONS})
+target_link_libraries(${PROJECT_NAME} ${BOOST_TEST_LIB})

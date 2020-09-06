@@ -26,7 +26,7 @@ configure_file (
 # Configurable options
 if ("${BUILD_TYPE}" STREQUAL "STATIC")
 	set (LIBRARY_TYPE STATIC)
-    message("Build type: 'STATIC' : Build all components linking them statically into binary")
+    message("Build type: 'STATIC' : Build all components, link them statically into binary")
 else()
 	set (LIBRARY_TYPE SHARED)
 	message("Build type: 'SHARED' : Link all components as shared libraries")
@@ -49,14 +49,9 @@ set (COMMON_INCLUDE "${BUILD_ROOT}/Common.cmake")
 
 #set_source_files_properties(${PROJECT_HOME}/buildinfo.hpp PROPERTIES GENERATED TRUE HEADER_FILE_ONLY TRUE)
 
-#include_directories(${PROJECT_HOME})
-#include_directories(${PROJECT_HOME}/modules/polymorphic-core)
-#include_directories(${PROJECT_HOME}/modules/vocabulary)
-
 # libs
 sonia_add_library(STATIC ${BUNDLES}/sonia-prime/projects/cmake/sonia-prime-lib sonia-prime-lib)
 sonia_add_library(${LIBRARY_TYPE} ${BUNDLES}/sonia-prime/projects/cmake/sonia-prime sonia-prime)
-#sonia_add_library(${LIBRARY_TYPE} ${BUNDLES}/sonia-net/projects/cmake/sonia-net sonia-net)
 
 #executable
 add_subdirectory(dev-test)

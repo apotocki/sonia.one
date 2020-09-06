@@ -12,6 +12,8 @@ set PROJECT_HOME=%CD%\..\..\
 set MINGW_HOME=%MSYS_HOME%\mingw64
 set PATH=%MINGW_HOME%\bin;%PATH%
 
+set BUILD_TYPE=STATIC
+rem set BUILD_TYPE=SHARED
 goto :build
 
 IF NOT EXIST build (
@@ -26,7 +28,7 @@ cd build
 
 rem --graphviz=foo
 rem https://dreampuf.github.io/GraphvizOnline/
-cmake -G "MinGW Makefiles" %PROJECT_HOME%\projects\cmake\ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-mgw10 -DBOOST_LIB_SUFFIX=-x64-1_74
+cmake -DCMAKE_TOOLCHAIN_FILE=%PROJECT_HOME%\projects\cmake\mingw.toolchain.cmake -G "MinGW Makefiles" %PROJECT_HOME%\projects\cmake\ -DBUILD_TYPE=%BUILD_TYPE% -DBOOST_BUILD_INFIX=-mgw10 -DBOOST_LIB_SUFFIX=-x64-1_74
 
 mingw32-make.exe -j8 regression-test
 rem regression-test angel
