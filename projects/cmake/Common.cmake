@@ -187,5 +187,5 @@ set (SONIA_C_AND_CXX_COMMON "${SONIA_C_AND_CXX_COMMON} -DBOOST_THROW_EXCEPTION_C
 )
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${SONIA_C_AND_CXX_COMMON}")   
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SONIA_C_AND_CXX_COMMON} -std=c++20 -Wno-reorder -Wno-unused-local-typedefs")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${SONIA_C_AND_CXX_COMMON} -std=c++2a -Wno-reorder -Wno-unused-local-typedefs")
 
