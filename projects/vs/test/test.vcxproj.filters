@@ -26,12 +26,6 @@
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\epoll_experiment.cpp">
       <Filter>net</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\net\http_test.cpp">
-      <Filter>net</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\net\uri_test.cpp">
-      <Filter>net</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\bundles\sonia-prime\applied\scoped_services.cpp">
       <Filter>support</Filter>
     </ClCompile>
@@ -48,6 +42,21 @@
     <ClCompile Include="..\..\..\bundles\sonia-prime\tests\agnostic\avl_test.cpp">
       <Filter>agnostic</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\applied\tests_external.cpp">
+      <Filter>support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\applied\tests_main.cpp">
+      <Filter>support</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\http_iterators_test.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\http_test.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\bundles\sonia-prime\tests\uri_test.cpp">
+      <Filter>net</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="net">
@@ -59,5 +68,13 @@
     <Filter Include="agnostic">
       <UniqueIdentifier>{752447cd-f8eb-48bd-8704-6b0bc8e579bd}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\bundles\sonia-prime\applied\tests_external.hpp">
+      <Filter>support</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\bundles\sonia-prime\applied\sonia_test.hpp">
+      <Filter>support</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

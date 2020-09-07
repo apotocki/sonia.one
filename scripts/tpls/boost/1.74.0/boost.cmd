@@ -113,7 +113,7 @@ echo building boost (MINGW)...
 set PATH=%MSYS_HOME%\mingw64\bin;%TPLS_HOME%\icu.mingw64\lib;%PATH%
 rem set LIBRARY_PATH=%MSYS_HOME%\mingw64\bin
 
-b2.exe -j8 cxxflags="-std=c++17" -sICU_PATH="%TPLS_HOME%\icu.mingw64" toolset=gcc release address-model=64 architecture=x86 define=BOOST_SPIRIT_THREADSAFE define=BOOST_USE_WINDOWS_H define=_WIN32_WINNT=0x0601 define=WINVER=0x0601 link=shared,static runtime-link=shared --with-regex --with-locale --with-date_time --with-thread --with-program_options --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-context --with-stacktrace
+b2.exe -j8 cxxflags="-std=c++17" -sICU_PATH="%TPLS_HOME%\icu.mingw64" toolset=gcc release address-model=64 architecture=x86 define=BOOST_TEST_NO_MAIN define=BOOST_SPIRIT_THREADSAFE define=BOOST_USE_WINDOWS_H define=_WIN32_WINNT=0x0601 define=WINVER=0x0601 link=shared,static runtime-link=shared --with-regex --with-locale --with-date_time --with-thread --with-program_options --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-context --with-stacktrace
 
 :install
 

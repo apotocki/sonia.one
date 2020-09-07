@@ -52,6 +52,7 @@ set (COMMON_INCLUDE "${BUILD_ROOT}/Common.cmake")
 # libs
 sonia_add_library(STATIC ${BUNDLES}/sonia-prime/projects/cmake/sonia-prime-lib sonia-prime-lib)
 sonia_add_library(${LIBRARY_TYPE} ${BUNDLES}/sonia-prime/projects/cmake/sonia-prime sonia-prime)
+sonia_add_library(STATIC ${BUNDLES}/sonia-prime/projects/cmake/sonia-tests-lib sonia-tests-lib)
 
 #executable
 add_subdirectory(dev-test)
