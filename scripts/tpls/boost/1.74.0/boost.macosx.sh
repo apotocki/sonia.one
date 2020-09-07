@@ -42,7 +42,7 @@ namespace boost/' boost/serialization/unordered_collections_load_imp.hpp.orig > 
 
 echo "building boost..."
 
-./b2 -j8 cxxflags="-std=c++17" -sICU_PATH="$TPLS_HOME/icu"  release link=shared,static runtime-link=shared address-model=64 --layout=versioned architecture=x86 define=BOOST_SPIRIT_THREADSAFE --with-date_time --with-thread --with-program_options --with-regex --with-test --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-stacktrace
+./b2 -j8 cxxflags="-std=c++17" -sICU_PATH="$TPLS_HOME/icu" release link=shared,static runtime-link=shared address-model=64 --layout=versioned architecture=x86 define=BOOST_TEST_NO_MAIN define=BOOST_SPIRIT_THREADSAFE --with-test --with-date_time --with-thread --with-program_options --with-regex --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-stacktrace
 if true; then
 echo installing boost...
 if [ -d $TPLS_HOME/$BOOST_NAME ]; then
