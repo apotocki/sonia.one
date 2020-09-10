@@ -40,10 +40,25 @@ sed 's/^namespace boost/#include <boost\/serialization\/library_version_type.hpp
 \
 namespace boost/' boost/serialization/unordered_collections_load_imp.hpp.orig > boost/serialization/unordered_collections_load_imp.hpp
 
+if [[ -f tools/build/src/user-config.jam ]]; then
+	rm -f tools/build/src/user-config.jam
+fi
+#-isysroot=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk
+cat >> tools/build/src/user-config.jam <<EOF
+using darwin : iossim : clang++ -arch x86_64 -L.
+: <striper> <root>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/
+: <architecture>x86 <target-os>iphone 
+;
+EOF
+if [[ ! -f librt.a ]]; then
+ln -s $(xcrun --sdk iphoneos --show-sdk-path)/usr/lib/libpkstart.a librt.a
+fi
 echo "building boost..."
 
-./b2 -j8 cxxflags="-std=c++17" -sICU_PATH="$TPLS_HOME/icu" release link=shared,static runtime-link=shared address-model=64 --layout=versioned architecture=x86 define=BOOST_TEST_NO_MAIN define=BOOST_SPIRIT_THREADSAFE --with-test --with-date_time --with-thread --with-program_options --with-regex --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-stacktrace
-if true; then
+#./b2 -j8 cxxflags="-std=c++17" -sICU_PATH="$TPLS_HOME/icu" release link=shared,static runtime-link=shared address-model=64 --layout=versioned architecture=x86 define=BOOST_TEST_NO_MAIN define=BOOST_SPIRIT_THREADSAFE --with-test --with-date_time --with-thread --with-program_options --with-regex --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-stacktrace
+./b2 -j8 cxxflags="-std=c++17" -sICU_PATH="$TPLS_HOME/icu" release release link=static runtime-link=shared address-model=64 --layout=versioned --stagedir=stage/iossim target-os=iphone toolset=darwin-iossim macosx-version=iphonesim-13.7 architecture=x86 define=BOOST_TEST_NO_MAIN define=BOOST_SPIRIT_THREADSAFE --with-test --with-date_time --with-thread --with-program_options --with-regex --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-stacktrace
+
+if false; then
 echo installing boost...
 if [ -d $TPLS_HOME/$BOOST_NAME ]; then
 	rm -rf $TPLS_HOME/$BOOST_NAME

@@ -15,7 +15,7 @@ if [ ! -d $DIR/build ]; then
 fi
 
 cd $DIR/build
-cmake $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=STATIC -DBOOST_BUILD_INFIX=-clang-darwin110 -DBOOST_LIB_SUFFIX=-x64-1_74
+cmake $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=SHARED -DBOOST_BUILD_INFIX=-clang-darwin110 -DBOOST_LIB_SUFFIX=-x64-1_74
 
 #VERBOSE=1
 make -j8 regression-test
