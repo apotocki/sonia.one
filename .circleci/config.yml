@@ -9,6 +9,7 @@ jobs:
         PROJECT_HOME: /root/project
         PROJECT_BUILD_HOME: /root/project/build
         SONIA_PRIME_HOME: /root/project/bundles/sonia-prime
+        TESTS_HOME: /root/project/bundles/sonia-prime/tests
         LD_LIBRARY_PATH: /usr/local/lib:/root/project/build/sonia-prime
      steps:
        - checkout
