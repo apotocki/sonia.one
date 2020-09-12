@@ -21,7 +21,10 @@ echo building $OPENSSL_VER ...
 pushd $OPENSSL_VER_NAME
 
 #./Configure LIST
-./Configure --prefix="$TPLS_HOME/openssl.iossim" --openssldir="$TPLS_HOME/openssl.iossim/ssl" no-shared iossimulator-xcrun
+#./Configure --prefix="$TPLS_HOME/openssl.iossim" --openssldir="$TPLS_HOME/openssl.iossim/ssl" no-shared iossimulator-xcrun
+./Configure --prefix="$TPLS_HOME/openssl.ios" --openssldir="$TPLS_HOME/openssl.ios/ssl" no-shared no-dso no-hw no-engine ios64-xcrun -fembed-bitcode-marker
+
+make clean
 make install
 #--cross-compile-prefix=
 #perl Configure --prefix="%TPLS_HOME%\openssl" --openssldir="%TPLS_HOME%/openssl/ssl" VC-WIN64A || goto :error

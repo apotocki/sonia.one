@@ -16,10 +16,23 @@ if [ ! -d $DIR/build ]; then
 	mkdir $DIR/build
 fi
 
+#-DBOOST_BUILD_INFIX=-clang-darwin110 -DBOOST_LIB_SUFFIX=-arm64-1_74
 #echo $SDKROOT
-cd $DIR/build
-cmake -DCMAKE_TOOLCHAIN_FILE=$PROJECT_HOME/projects/cmake/ios.sim.toolchain.cmake -GXcode $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=STATIC -DBOOST_BUILD_INFIX=-clang-darwin110 -DBOOST_LIB_SUFFIX=-x64-1_74
-cmake --build . --target sonia-tests-lib -- -sdk iphonesimulator OTHERCFLAGS="-Wno-shorten-64-to-32"
+pushd $DIR/build
+cmake -DCMAKE_TOOLCHAIN_FILE=$PROJECT_HOME/projects/cmake/ios.toolchain.cmake -GXcode $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=STATIC 
+cmake --build . --config Release --target sonia-tests-lib -- -sdk iphoneos
+popd
+
+if false; then
+if [ ! -d $DIR/build.sim ]; then
+	mkdir $DIR/build.sim
+fi
+pushd $DIR/build.sim
+cmake -DCMAKE_TOOLCHAIN_FILE=$PROJECT_HOME/projects/cmake/ios.sim.toolchain.cmake -GXcode $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=STATIC
+#cmake --build . --config Release --target sonia-tests-lib -- -sdk iphonesimulator OTHERCFLAGS="-Wno-shorten-64-to-32"
+cmake --build . --config Release --target sonia-tests-lib -- -sdk iphone OTHERCFLAGS="-Wno-shorten-64-to-32"
+fi
+
 #VERBOSE=1
 #make -j8 sonia-tests-lib
 

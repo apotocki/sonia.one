@@ -18,7 +18,7 @@ AR=libtool
 LDFLAGS=
 
 BIGFILES=-D_FILE_OFFSET_BITS=64
-CFLAGS=-Wall -Winline -O2 $(BIGFILES) -fembed-bitcode-marker -isysroot $(ISYSROOT)
+CFLAGS=-Wall -Winline -O2 $(BIGFILES) $(CFLAGS)
 
 OBJS= blocksort.o  \
       huffman.o    \
@@ -35,9 +35,7 @@ libbz2.a: $(OBJS)
 	$(AR) -static -o libbz2.a $(OBJS)
 
 clean: 
-	rm -f *.o libbz2.a bzip2 bzip2recover \
-	sample1.rb2 sample2.rb2 sample3.rb2 \
-	sample1.tst sample2.tst sample3.tst
+	rm -f *.o libbz2.a
 
 blocksort.o: blocksort.c
 	@cat words0

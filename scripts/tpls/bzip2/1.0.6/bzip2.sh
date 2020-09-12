@@ -25,7 +25,9 @@ DEVSYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platfor
 
 echo building $BZIP2_VER_NAME ...
 pushd $BZIP2_VER_NAME
-make -f Makefile libbz2.a ISYSROOT=$SIMSYSROOT
+
+make -f Makefile clean
+make -f Makefile libbz2.a CFLAGS="-fembed-bitcode-marker -target x86_64-apple-ios13.5-simulator -isysroot $SIMSYSROOT"
 
 echo installing $BZIP2_VER_NAME ...
 if [[ -d $TPLS_HOME/bzip2 ]]; then
@@ -38,5 +40,9 @@ mkdir $TPLS_HOME/bzip2/lib.ios
 mkdir $TPLS_HOME/bzip2/lib.iossim
 cp bzlib.h $TPLS_HOME/bzip2/include/
 cp libbz2.a $TPLS_HOME/bzip2/lib.iossim/
+
+make -f Makefile clean
+make -f Makefile libbz2.a CFLAGS="-fembed-bitcode-marker -target arm64-apple-ios13.5 -isysroot $DEVSYSROOT"
+cp libbz2.a $TPLS_HOME/bzip2/lib.ios/
 
 popd
