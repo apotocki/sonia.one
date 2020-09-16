@@ -20,29 +20,33 @@ tar -xf $BZIP2_VER_NAME.tgz
 FDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cp $FDIR/Makefile $BZIP2_VER_NAME/Makefile
 
-SIMSYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk
-DEVSYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk
-
-echo building $BZIP2_VER_NAME ...
 pushd $BZIP2_VER_NAME
 
-make -f Makefile clean
-make -f Makefile libbz2.a CFLAGS="-fembed-bitcode-marker -target x86_64-apple-ios13.5-simulator -isysroot $SIMSYSROOT"
-
-echo installing $BZIP2_VER_NAME ...
 if [[ -d $TPLS_HOME/bzip2 ]]; then
 	rm -rf $TPLS_HOME/bzip2
 fi
 
 mkdir $TPLS_HOME/bzip2
 mkdir $TPLS_HOME/bzip2/include
+mkdir $TPLS_HOME/bzip2/lib
 mkdir $TPLS_HOME/bzip2/lib.ios
-mkdir $TPLS_HOME/bzip2/lib.iossim
 cp bzlib.h $TPLS_HOME/bzip2/include/
-cp libbz2.a $TPLS_HOME/bzip2/lib.iossim/
+
+echo building $BZIP2_VER_NAME ...
 
 make -f Makefile clean
-make -f Makefile libbz2.a CFLAGS="-fembed-bitcode-marker -target arm64-apple-ios13.5 -isysroot $DEVSYSROOT"
-cp libbz2.a $TPLS_HOME/bzip2/lib.ios/
+make -f Makefile libbz2.a CFLAGS=
+cp libbz2.a $TPLS_HOME/bzip2/lib/ 
 
+make -f Makefile clean
+make -f Makefile libbz2.a CFLAGS="-target x86_64-$IOS_TARGET-simulator -isysroot $SIMSYSROOT/SDKs/iPhoneSimulator.sdk"
+cp libbz2.a $TPLS_HOME/bzip2/lib.ios/libbz2.sym.a
+
+make -f Makefile clean
+make -f Makefile libbz2.a CFLAGS="-fembed-bitcode-marker -target arm64-$IOS_TARGET -isysroot $DEVSYSROOT/SDKs/iPhoneOS.sdk"
+cp libbz2.a $TPLS_HOME/bzip2/lib.ios/libbz2.dev.a
+
+xcrun lipo -create $TPLS_HOME/bzip2/lib.ios/libbz2.sym.a $TPLS_HOME/bzip2/lib.ios/libbz2.dev.a -o $TPLS_HOME/bzip2/lib.ios/libbz2.a
+
+make -f Makefile clean
 popd

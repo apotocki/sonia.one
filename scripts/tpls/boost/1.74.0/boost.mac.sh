@@ -5,9 +5,6 @@ BOOST_VER=1.74.0
 ################## SETUP END
 BOOST_NAME=boost_${BOOST_VER//./_}
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-XCODE_ROOT=`xcode-select -print-path`
-IOS_SDK_PATH="$XCODE_ROOT/Platforms/iPhoneOS.platform/Developer"
-IOSSIM_SDK_PATH="$XCODE_ROOT/Platforms/iPhoneSimulator.platform/Developer"
 
 merge_archives()
 {
@@ -39,7 +36,8 @@ if [ ! -f $BOOST_NAME/b2 ]; then
 	popd
 fi
 
-cd $BOOST_NAME
+pushd $BOOST_NAME
+if true; then
 
 if [ -d bin.v2 ]; then
 	rm -rf bin.v2
@@ -88,12 +86,12 @@ if [[ -f tools/build/src/user-config.jam ]]; then
 	rm -f tools/build/src/user-config.jam
 fi
 cat >> tools/build/src/user-config.jam <<EOF
-using darwin : ios : clang++ -arch arm64 -fembed-bitcode-marker -isysroot $IOS_SDK_PATH/SDKs/iPhoneOS.sdk
-: <striper> <root>$IOS_SDK_PATH 
+using darwin : ios : clang++ -arch arm64 -fembed-bitcode-marker -isysroot $DEVSYSROOT/SDKs/iPhoneOS.sdk
+: <striper> <root>$DEVSYSROOT 
 : <architecture>arm <target-os>iphone 
 ;
 using darwin : iossim : clang++ -arch x86_64 
-: <striper> <root>$IOSSIM_SDK_PATH 
+: <striper> <root>$SIMSYSROOT 
 : <architecture>x86 <target-os>iphone 
 ;
 using darwin : : 
@@ -113,7 +111,16 @@ merge_archives "stage/ios/lib"
 ./b2 -j8 --stagedir=stage/iossim cxxflags="-std=c++17 -fembed-bitcode-marker" -sICU_PATH="$TPLS_HOME/icu" toolset=darwin-iossim address-model=64 architecture=x86 target-os=iphone macosx-version=iphonesim-13.7 architecture=x86 $B2_BUILD_OPTIONS $LIBS_TO_BUILD
 
 merge_archives "stage/iossim/lib"
+fi
+echo installing boost...
+if [ -d $TPLS_HOME/$BOOST_NAME ]; then
+	rm -rf $TPLS_HOME/$BOOST_NAME
+fi
+mkdir -p $TPLS_HOME/$BOOST_NAME/include
+mkdir -p $TPLS_HOME/$BOOST_NAME/lib.ios
+cp -R boost $TPLS_HOME/$BOOST_NAME/include/
+mv stage/macosx/lib $TPLS_HOME/$BOOST_NAME/
 
- #--with-test --with-date_time --with-thread --with-program_options --with-regex --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-stacktrace
+xcrun lipo -create stage/iossim/lib/libboost.a stage/ios/lib/libboost.a -o $TPLS_HOME/$BOOST_NAME/lib.ios/libboost.a
 
-#--with-test --with-date_time --with-thread --with-program_options --with-regex --with-system --with-log --with-serialization --with-graph --with-filesystem --with-random --with-locale --with-context --with-stacktrace
+popd
