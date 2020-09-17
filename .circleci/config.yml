@@ -3,9 +3,9 @@ version: 2.1
 jobs:
    build:
      docker:
-       - image: sane22222/u18.04g9.1b1.70:latest
+       - image: sane22222/sonia.one.test.environment:u18.04g10.1b1.74 
      environment:
-        BOOST_INCLUDE: /usr/local/include/boost-1_70
+        BOOST_INCLUDE: /usr/local/include/boost-1_74
         PROJECT_HOME: /root/project
         PROJECT_BUILD_HOME: /root/project/build
         SONIA_PRIME_HOME: /root/project/bundles/sonia-prime
@@ -16,7 +16,7 @@ jobs:
        - run: git submodule foreach "git checkout master"
        - run: mkdir -p $PROJECT_HOME/tpls/lexertl14 && cp -r /tmp/lexertl14/include $PROJECT_HOME/tpls/lexertl14/
        - run: mkdir $PROJECT_BUILD_HOME
-       - run: cd $PROJECT_BUILD_HOME && CC=gcc-9 CXX=g++-9 cmake $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc9 -DBOOST_LIB_SUFFIX=-x64-1_70
+       - run: cd $PROJECT_BUILD_HOME && CC=gcc-10 CXX=g++-10 cmake $PROJECT_HOME/projects/cmake/ -DBUILD_TYPE=DYNAMIC -DBOOST_BUILD_INFIX=-gcc10 -DBOOST_LIB_SUFFIX=-x64-1_74
        - run: cd $PROJECT_BUILD_HOME && make -j2 regression-test
        - run: cd $PROJECT_HOME/workdirs/tests && $PROJECT_BUILD_HOME/regression-test/regression-test --no_color_output --log_level=test_suite
        
