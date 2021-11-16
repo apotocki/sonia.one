@@ -3,18 +3,18 @@
 /projects/vs/**/x64
 /projects/vs/**/*.user
 /projects/vs/**/*.amplxeproj
+/**/.DS_Store
 
 /build
 /tpls
-/my_tpls_vc_build.bat
-/scripts/mingw/build
+
 /build_config.hpp
 /scripts/docker-build-image/*.bz2
-/scripts/docker/build
+
+/scripts/**/build
 /workdirs/**/.*
 /workdirs/tests/logs
 /workdirs/tests/*_test
 
 /workdirs/angel/logs
-
-
+/my_tpls_vc_build.bat

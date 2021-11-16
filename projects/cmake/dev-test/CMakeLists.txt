@@ -13,8 +13,9 @@ set (PROJECT_SOURCES
     ${BUNDLES}/sonia-prime/tests/transceiver_test.cpp
     #${BUNDLES}/sonia-prime/tests/net_service_test.cpp
     #${BUNDLES}/sonia-prime/tests/epoll_experiment.cpp
-    #${BUNDLES}/sonia-prime/tests/test.cpp
-    ${BUNDLES}/sonia-prime/tests/timer_test.cpp
+    #${BUNDLES}/sonia-prime/tests/server_test.cpp
+	#${BUNDLES}/sonia-prime/tests/test.cpp
+    #${BUNDLES}/sonia-prime/tests/timer_test.cpp
 )
 
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES})
@@ -32,6 +33,4 @@ sonia_link_library(${PROJECT_NAME} sonia-prime)
 #    target_link_libraries(${MODULE_NAME} ${BOOST_LOCALE} ${OPENSSL})
 #endif()
 
-target_link_libraries(${PROJECT_NAME} ${PLATFORM_LIBS} ${BOOST_TEST_LIB} ${BOOST_REGEX} ${BOOST_CHRONO} ${BOOST_THREAD} ${BOOST_SERIALIZATION} ${BOOST_TEST_LIB} ${BOOST_PROGRAM_OPTIONS} ${BOOST_FILESYSTEM} ${ZLIB} ${BZLIB})
-
-#target_link_libraries(${PROJECT_NAME} ${BOOST_CHRONO} ${BOOST_TEST_LIB} ${BOOST_PROGRAM_OPTIONS})
+target_link_libraries(${PROJECT_NAME} ${BOOST_TEST_LIB})

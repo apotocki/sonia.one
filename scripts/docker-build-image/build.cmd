@@ -2,7 +2,7 @@
 setlocal
 REM ############## SETUP
 rem set MSYS_HOME=
-set BOOST_VER=1.70.0
+set BOOST_VER=1.74.0
 REM ############## SETUP END
 
 set BOOST_NAME=boost_%BOOST_VER:.=_%

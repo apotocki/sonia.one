@@ -1,3 +1,4 @@
+docker stop devrun
 docker rm devrun
 docker run --cap-add=SYS_PTRACE --name devrun ^
   --mount type=bind,source="%CD%\..\..",target=/opt/src ^

@@ -1,5 +1,5 @@
 #!/bin/bash
-export BOOST_VER=1.70.0
+export BOOST_VER=1.74.0
 export BOOST_NAME=boost_${BOOST_VER//\./_}
 echo "downloading boost"
 cd /tmp
