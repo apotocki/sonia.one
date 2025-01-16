@@ -1,4 +1,4 @@
-[<img src="https://api.gitsponsors.com/api/badge/img?id=163750404" height="40">](https://api.gitsponsors.com/api/badge/link?p=BPejrFsiYOa+84NheATsgcA9tIBhnre8/M+CaYRx3piCclUczpPiEx6K/b657Q/WASUxQ8Y84hOu5Lq/cDoKaGsp/wcUVOeZ6wgUBUBAOWEwkpRRdzdkOukHhRJfcsttpo2DTYC6oiqO3Lu8V9Fz0A==)
+[<img src="https://api.gitsponsors.com/api/badge/img?id=163750404" height="50">](https://api.gitsponsors.com/api/badge/link?p=BPejrFsiYOa+84NheATsgSHYJ+ienH5yJFReiYcdVHawiINOqaPH66RCVqsUZqva5WNcWsJWd35j574+MCi63oadx5CbHV/VvIyKiRB9bo6bVrZjaGLFp1rskPde6FTaNNT4l18xDtfyS+uzORWEqA==)
 
 # sonia.one
 master: [![Build status](https://circleci.com/gh/apotocki/sonia.one/tree/master.svg?style=shield)](<https://app.circleci.com/pipelines/github/apotocki/sonia.one?branch=master>)
